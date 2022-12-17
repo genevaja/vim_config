@@ -9,7 +9,7 @@ g.translate_target = 'en'
 -------------------------------------------------
 -- Главные
 -------------------------------------------------
-opt.colorcolumn = '90'		-- Разделитель на 90 символов
+-- opt.colorcolumn = '90'		-- Разделитель на 90 символов
 opt.cursorline = true		-- Подсветка строки с курсором
 opt.spelllang = {'en_us', 'ru'} -- Словари рус eng
 opt.number = true		-- Включаем нумерацию строк
@@ -17,6 +17,8 @@ opt.relativenumber = true	-- Вкл. относительную нумераци
 opt.undofile = true		-- Возможность отката назад
 opt.splitright = true		-- Vertical split вправо
 opt.splitbelow = true		-- Horizontal split вниз
+opt.scrolloff = 7
+opt.mouse=''
 
 -------------------------------------------------
 -- Цветовая схема
@@ -41,7 +43,7 @@ cmd [[au BufEnter * set fo-=c fo-=r fo -=o]]
 cmd [[autocmd FileType text,markdown,html,xhtml,javascript setlocal cc=0]]
 -- Two spaces for selected filetypes
 cmd [[
-autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml,htmljinja setlocal shiftwidth=2 tabstop=2
+autocmd FileType h,c,xml,html,xhtml,css,scss,javascript,lua,yaml,htmljinja,c,h,cpp setlocal shiftwidth=2 tabstop=2
 ]]
 
 --------------------------------------------------
@@ -91,7 +93,7 @@ end)
 
 -- Nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 vim.o.completeopt = 'menuone,noselect'
 -- Luasnip setup
 local luasnip = require 'luasnip'

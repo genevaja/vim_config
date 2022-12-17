@@ -46,6 +46,9 @@ return require('packer').startup(function()
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
+
+    -- local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
     use 'saadparwaiz1/cmp_luasnip'
     -- Автодополнялка к файловой системе
     use 'hrsh7th/cmp-path'
